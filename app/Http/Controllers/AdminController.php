@@ -16,6 +16,8 @@ class AdminController extends Controller
                     'name'=>'required',
                     'email'=>'required|email|unique:admin',
                     'password'=>'required|min:5|max:12',
+                    'dob'=>'required',
+                    'gender'=>'required',
                 ]
         );
 
@@ -27,10 +29,30 @@ class AdminController extends Controller
         $admin->password= $req['password'];
         $admin->save();
         if($req){
-            return view('home')->with("success","Admin Created Successfully");
+            return redirect('/admin/admin-view')->with("success","Admin Created Successfully");
         }
         else{
-            return view('home')->with("fail","Something went wrong");
+            return redirect('home')->with("fail","Something went wrong");
+        }
+    }
+
+    public function loginAdmin(Request $req){
+        $req->validate(
+            [
+                'email'=>'required',
+                'password'=>'required',
+                
+            ]
+
+        );
+        $admin= Admin::where('email',"=",$req->email)->first();
+        if($admin){
+            return redirect('admin/login')->with('success',"this is  valid email");
+        }
+
+        else{
+
+            return redirect('admin/login')->with('fail',"this is not valid email");
         }
     }
 }

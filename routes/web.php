@@ -41,7 +41,9 @@ Route::get('/admin/login', [MyController::class, 'showLogin']);
 
 Route::get('/admin/admin-view', [MyController::class, 'adminView']);
 
-//submit form
-
+//register form
 Route::post('/admin/register', [AdminController::class, 'registerAdmin']);
+
+//Login form
+Route::post('/admin/login', [AdminController::class, 'loginAdmin'])->name("admin-login");
 
