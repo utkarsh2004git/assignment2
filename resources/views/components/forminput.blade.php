@@ -1,5 +1,5 @@
-<div class="form-group">
-    <label for="name">{{$title}}</label>
+<div class="form-group my-2">
+    <label for="name" class="font-semibold">{{$title}}</label>
     <input type="{{$type}}"
-      class="form-control" name="{{$name}}" id=""  placeholder="">
+      class="form-control rounded-md"  name="{{$name}}" id=""  placeholder="" value="{{old($name)}}">
   </div>
