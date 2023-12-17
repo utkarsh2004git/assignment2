@@ -38,6 +38,9 @@ Route::get('/dashboard', function () {
 Route::get('/admin/register', [MyController::class, 'showRegister']);
 Route::get('/admin/login', [MyController::class, 'showLogin']);
 
+
+Route::get('/admin/admin-view', [MyController::class, 'adminView']);
+
 //submit form
 
 Route::post('/admin/register', [AdminController::class, 'registerAdmin']);

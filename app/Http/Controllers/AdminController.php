@@ -14,8 +14,8 @@ class AdminController extends Controller
         $req->validate(
                 [
                     'name'=>'required',
-                    'email'=>'required|email',
-                    'password'=>'required',
+                    'email'=>'required|email|unique:admin',
+                    'password'=>'required|min:5|max:12',
                 ]
         );
 
@@ -26,6 +26,11 @@ class AdminController extends Controller
         $admin->gender= $req['gender'];
         $admin->password= $req['password'];
         $admin->save();
-        return view('home');
+        if($req){
+            return view('home')->with("success","Admin Created Successfully");
+        }
+        else{
+            return view('home')->with("fail","Something went wrong");
+        }
     }
 }

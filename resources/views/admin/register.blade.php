@@ -40,10 +40,10 @@
             <option value="O" name="O" >Other</option>
           </select>
           
-
           <div class="text-center">
             <button type="submit" class="btn btn-primary text-center bg-blue-600 mt-3">Submit</button>
           </div>
+          <a href="{{url('admin/login')}}" class="font-semibold text-primary" >Already Registered?</a>
 
 
         

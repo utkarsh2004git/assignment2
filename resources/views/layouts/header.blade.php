@@ -6,7 +6,9 @@
             <div class="font-bold text-2xl ">
                 <a href="{{ url('/posts') }}" class="text-gray-600  hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Posts</a>
 
-                <a href="{{ url('/dashboard') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Create</a>
+                <a href="{{ url('/create') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Create</a>
+
+                <a href="{{ url('/admin/admin-view') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Admins</a>
 
                 <a href="{{ url('/admin/login') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Log in</a>
 
