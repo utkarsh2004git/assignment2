@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Admin;
-
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Session;
 
 class AdminController extends Controller
 {
@@ -26,7 +27,7 @@ class AdminController extends Controller
         $admin->email= $req['email'];
         $admin->dob= $req['dob'];
         $admin->gender= $req['gender'];
-        $admin->password= $req['password'];
+        $admin->password= Hash::make($req['password']);
         $admin->save();
         if($req){
             return redirect('/admin/admin-view')->with("success","Admin Created Successfully");
@@ -47,12 +48,20 @@ class AdminController extends Controller
         );
         $admin= Admin::where('email',"=",$req->email)->first();
         if($admin){
-            return redirect('admin/login')->with('success',"this is  valid email");
+            if(Hash::check($req->password,$admin->password)){
+                $req->session()->put('loginId',$admin->admin_id);
+                return redirect('/');
+            }
+            else{
+                return back()->with('fail',"Password is incorrect");
+            }
         }
 
         else{
 
-            return redirect('admin/login')->with('fail',"this is not valid email");
+            return back()->with('fail',"this is not valid email");
         }
     }
+
+    
 }

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Hash;
+
 class AdminSeeder extends Seeder
 {
     /**
@@ -15,7 +17,7 @@ class AdminSeeder extends Seeder
         $admin1=new Admin;
         $admin1->name="Utkarsh";
         $admin1->email="Utkarsh@123";
-        $admin1->password="123456789";
+        $admin1->password=Hash::make("123456789");
         $admin1->gender="M";
         $admin1->dob=now();
         $admin1->status=1;
@@ -27,7 +29,7 @@ class AdminSeeder extends Seeder
         $admin2->gender="F";
         $admin2->dob=now();
         $admin2->status=1;
-        $admin2->password="987456321";
+        $admin2->password=Hash::make("987456321");
         $admin2->save();
     }
 }
