@@ -23,7 +23,7 @@
       {
           setTimeout(function() {
               $("div.alert").remove()
-          },2000);
+          },4000);
       });
   </script>
   </body>

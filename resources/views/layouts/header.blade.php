@@ -13,6 +13,7 @@
                 <a href="{{ url('/admin/login') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Log in</a>
 
                 <a href="{{ url('/admin/register') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Register</a>
+                <a href="{{ url('/logout') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">logout</a>
 
             </div>
     </nav>

@@ -17,12 +17,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//index page
 Route::get('/', [HomeController::class, 'index']);
 
+//dashboard page
+Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware('isLoggedIn');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+//logout 
+Route::get('/logout', [HomeController::class, 'logout']);
+
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// });
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
