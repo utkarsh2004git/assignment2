@@ -1,6 +1,5 @@
-
 @extends('layouts.main')
 @section('hero-section')
 
-<h1>This is dashboard</h1>
+<h2>Thhis is login part</h2>
 @endsection
