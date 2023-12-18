@@ -21,6 +21,13 @@ use Illuminate\Support\Facades\Route;
 //index page
 Route::get('/', [PostController::class, 'HomePage']);
 
+//create post
+Route::get('/create-post', [PostController::class, 'createPostView']);
+
+
+//create post
+Route::post('/create-post', [PostController::class, 'createPost']);
+
 //dashboard page
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware('isLoggedIn');
 
@@ -48,6 +55,10 @@ Route::get('/admin/login', [MyController::class, 'showLogin']);
 
 
 Route::get('/admin/admin-view', [MyController::class, 'adminView'])->middleware('isLoggedIn');
+
+Route::get('/allposts', [MyController::class, 'postView'])->middleware('isLoggedIn');
+
+
 
 //register form
 Route::post('/admin/register', [AdminController::class, 'registerAdmin']);

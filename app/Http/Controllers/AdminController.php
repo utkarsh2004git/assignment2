@@ -64,7 +64,9 @@ class AdminController extends Controller
         }
     }
 
-    
+    public function postView(){
+        
+    }
 
 
 
