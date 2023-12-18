@@ -47,7 +47,7 @@
                 <td>{{$post->updated_at->diffForHumans()}}</td>
                 <td>
                     <a class="btn btn-danger" href="{{url('/delete-post')}}/{{$post->post_id}}"  onclick="confirmation(event)">Delete</a>
-                    <a class="btn btn-primary" href="">Edit</a>
+                    <a class="btn btn-primary" href="{{url('/edit-post')}}/{{$post->post_id}}">Edit</a>
 
                 </td>
             </tr>

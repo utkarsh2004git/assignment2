@@ -4,21 +4,25 @@
 
 <div class="container flex flex-column items-center">
     <div>
-      <h1 class="display-4 font-bold ">Create Post</h1>
+      <h1 class="display-4 font-bold ">{{$heading}}</h1>
     </div>
       <div class="forminside p-4 w-1/3 border border-stone-300 border-3 my-3 rounded-md bg-gray-100">
         
-        <form method="POST"  action="{{url('/create-post')}}">
+        <form method="POST"  action="{{$url}}">
           @csrf
+
           <div class="form-group">
             <label for="category " class="font-semibold">Category</label>
             <select class="form-control" name="category" id="category"  required  >
-              <option value="select" name="select" selected disabled >select</option>
-              <option value="Politics" name="Politics" >Politics</option>
-              <option value="Agriculture" name="Agriculture" >Agriculture</option>
-              <option value="Sports" name="Sports" >Sports</option>
-              <option value="Technology" name="Technology" >Technology</option>
-              <option value="Spiritual" name="Spiritual" >Spiritual</option>
+
+              <option  value="select" name="select" selected disabled >select</option>
+
+              <option  value="Politics" name="Politics"  {{$post->category=="Politics"?"selected":""}}>Politics</option>
+              <option  value="Agriculture" name="Agriculture" {{$post->category=="Agriculture"?"selected":""}} >Agriculture</option>
+              <option  value="Sports"       name="Sports"  {{$post->category=="Sports"?"selected":""}}{{$post->category=="Agriculture"?"selected":""}}>Sports</option>
+              <option  value="Technology" name="Technology" {{$post->category=="Technology"?"selected":""}} >Technology</option>
+              <option  value="Spiritual" name="Spiritual" {{$post->category=="Spiritual"?"selected":""}} >Spiritual</option>
+
             </select>
             <span class="text-danger">
               @error('category')
@@ -26,23 +30,21 @@
               @enderror
             </span>
             
-            <x-Forminput type="title" name="title" title="Title" errortype="title" value="title"/>
-            <span class="text-danger">
-              @error('title')
-              {{$message}}
-              @enderror
-            </span>
+            <div class="form-group my-2">
+              <label for="name" class="font-semibold">Title</label>
+              <input type="text"
+                class="form-control rounded-md"  name="title" id=""  placeholder="" value="{{$post->title}}">
+            </div>
         
 
 
         <div>
-            
             <label for="content" class="font-semibold">Content</label>
             <textarea id="content"
             class="block mt-1 w-full rounded"
             name="content"
             rows="6"
-            autofocus></textarea>
+            autofocus >{{$post->content}}</textarea>
             <span class="text-danger">
                 @error('content')
                 {{$message}}
@@ -50,15 +52,14 @@
               </span>
         </div>
         
-        <x-Forminput type="text" title="Name" name="name" errortype="name" value="name"/>
-        <span class="text-danger">
-            @error('name')
-            {{$message}}
-            @enderror
-          </span>
+        <div class="form-group my-2">
+          <label for="name" class="font-semibold">Name</label>
+          <input type="text"
+            class="form-control rounded-md"  name="name" id=""  placeholder="" value="{{$post->creator}}">
+        </div>
 
             <div class="text-center">
-              <button type="submit" class="btn btn-primary text-center bg-blue-600 mt-3" >Create</button>
+              <button type="submit" class="btn btn-primary text-center bg-blue-600 mt-3" >{{$btn}}</button>
             </div>
         </form>
       </div>

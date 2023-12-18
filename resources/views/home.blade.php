@@ -24,7 +24,7 @@
                 </div>
                 <div class="flex justify-between">
                     <span class="text-black ml-2 font-semibold  ">
-                        {{$post->created_at->diffForHumans()}}
+                        {{$post->updated_at->diffForHumans()}}
                     </span>
                     <a href="#" style="text-decoration: none" class="hover:scale-105 transition-all transition-600"> <span class=" text-white p-2 rounded-xl" style="background-color: #283447 ">
                         Read More

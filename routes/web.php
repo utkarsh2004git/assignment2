@@ -32,6 +32,13 @@ Route::post('/create-post', [PostController::class, 'createPost']);
 Route::get('/delete-post/{id}', [PostController::class, 'deletePost'])->name('delete.post');
 
 
+//edit post
+Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->name('edit.post');
+
+//update post
+Route::post('/update-post/{id}', [PostController::class, 'updatePost'])->name('update.post');
+
+
 
 Route::get('/allposts', [PostController::class, 'postView'])->middleware('isLoggedIn');
 
