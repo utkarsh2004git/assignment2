@@ -30,6 +30,7 @@ class AdminController extends Controller
         $admin->password= Hash::make($req['password']);
         $admin->save();
         if($req){
+            $req->session()->put('loginId',$admin->admin_id);
             return redirect('/admin/admin-view')->with("success","Admin Created Successfully");
         }
         else{

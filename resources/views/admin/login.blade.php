@@ -45,7 +45,7 @@
             <button type="submit" class="btn btn-primary text-center bg-blue-600 mt-3">Submit</button>
           </div>
 
-          <a href="{{url('admin/register')}}" class="font-semibold"> Registered Now </a>
+          <a href="{{url('admin/register')}}" class="font-semibold "> Registered Now </a>
         
 
       </form>

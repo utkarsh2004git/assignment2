@@ -29,7 +29,7 @@
           @enderror
       </span>
 
-        <x-Forminput type="date" name="dob" title="Date of Birth" errortype="date" value="dob"/>
+        <x-Forminput type="date" name="dob" title="Date of Birth" errortype="date" value="{{old('dob')}}"/>
         <span class="text-danger">
           @error('dob')
           {{$message}}
@@ -37,8 +37,8 @@
         </span>
         <div class="form-group">
           <label for="gender " class="font-semibold">Gender</label>
-          <select class="form-control" name="gender" id="gender"  required>
-            <option value="select" name="select" selected disabled>select</option>
+          <select class="form-control" name="gender" id="gender"  required  >
+            <option value="select" name="select" selected disabled >select</option>
             <option value="M" name="M" >Male</option>
             <option value="F" name="F" >Female</option>
             <option value="O" name="O" >Other</option>
@@ -47,8 +47,9 @@
             @error('gender')
             {{$message}}
             @enderror
+            
           <div class="text-center">
-            <button type="submit" class="btn btn-primary text-center bg-blue-600 mt-3">Submit</button>
+            <button type="submit" class="btn btn-primary text-center bg-blue-600 mt-3" >Submit</button>
           </div>
 
           <a href="{{url('admin/login')}}" class="font-semibold text-primary" >Already Registered?</a>
