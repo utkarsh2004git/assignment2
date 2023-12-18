@@ -46,7 +46,7 @@
                 <td>{{$post->created_at->diffForHumans()}}</td>
                 <td>{{$post->updated_at->diffForHumans()}}</td>
                 <td>
-                    <a class="btn btn-danger" href="{{url('/delete-post')}}/{{$post->post_id}}">Delete</a>
+                    <a class="btn btn-danger" href="{{url('/delete-post')}}/{{$post->post_id}}"  onclick="confirmation(event)">Delete</a>
                     <a class="btn btn-primary" href="">Edit</a>
 
                 </td>
@@ -59,5 +59,41 @@
 </div>
 <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8  " style="">{{ $posts->links() }}</div>
 
+@endsection
+
+@section('javascript-section')
+<script>
+    $('document').ready(function()
+    {
+        setTimeout(function() {
+            $("div.alert").remove()
+        },3000);
+    });
+</script>
+
+<script>
+
+    //Confirmation POP-UP
+
+    function confirmation(ev){
+        ev.preventDefault();
+        let urlToRedirect = ev.currentTarget.getAttribute('href');
+        console.log(urlToRedirect);
+        swal({
+            title: "Are you sure to delete this",
+            text:"You won't be able to revert this process!",
+            icon:"error",
+            buttons :true,
+            dangerMode:true,
+        })
+        .then((willCancel)=>
+            {
+                if(willCancel){
+                    window.location.href=urlToRedirect;
+                }
+            }
+        )
+    } 
+</script>
 
 @endsection

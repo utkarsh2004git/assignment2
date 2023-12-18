@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 class MyController extends Controller
 {
     public function showRegister(){
+         $posts=Post::paginate(9);
+         if(session()->has("loginId")){
+
+            return redirect('/')->with(compact('posts'));
+         }
         return view('admin/register');
      }
      public function showLogin(){
