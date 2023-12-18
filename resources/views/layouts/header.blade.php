@@ -5,19 +5,21 @@
             </div>
             <div class="font-bold text-2xl ">
                 @if(session()->has('loginId'))
-                <a href="{{ url('/posts') }}" class="text-gray-600  hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Posts</a>
 
-                <a href="{{ url('/create') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Create</a>
-                <a href="{{ url('/admin/admin-view') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Admins</a>
+                <x-Navitem url="/allposts" title="All-Post" />
+                <x-Navitem url="/create-post'" title="Create-Post" />
+                <x-Navitem url="/admin/admin-view" title="Admins" />
+
                 
                 @endif
-                <a href="{{ url('/admin/login') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Log in</a>
-
-
-                <a href="{{ url('/admin/register') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">Register</a>
-
+                
+                @if(!session()->has('loginId'))
+                <x-Navitem url="/admin/login" title="Log in" />
+                <x-Navitem url="/admin/register" title="Register" />
+                
+                @endif
                 @if(session()->has('loginId'))
-                <a href="{{ url('/logout') }}" class="text-gray-600 hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">logout</a>
+                <x-Navitem url="/logout" title="Logout" />>
                 @endif
             </div>
     </nav>

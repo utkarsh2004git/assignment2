@@ -1,0 +1,1 @@
+<a href="{{$url}}" class="text-gray-600  hover:text-orange-600  dark:text-gray-400 dark:hover:text-white px-6 ">{{$title}}</a>
