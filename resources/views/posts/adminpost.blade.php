@@ -24,6 +24,8 @@
     <table class="table">
         <thead align="center">
             <tr>
+
+                <th>User_Id</th>
                 <th>Creator</th>
                 <th>Category</th>
                 <th>Title</th>
@@ -34,8 +36,10 @@
             </tr>
         </thead>
         <tbody align="center">
+            
             @foreach ($posts as $post)
             <tr>
+                <td>{{$post->user_id}}</td>
                 <td>{{$post->creator}}</td>
                 <td>{{$post->category}}</td>
                 <td>{{$post->title}}</td>
@@ -51,7 +55,9 @@
             @endforeach
         </tbody>
     </table>
+    
 </div>
+<div class="inline-block min-w-full py-2 sm:px-6 lg:px-8  " style="">{{ $posts->links() }}</div>
 
 
 @endsection

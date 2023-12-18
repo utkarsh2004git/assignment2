@@ -28,6 +28,15 @@ Route::get('/create-post', [PostController::class, 'createPostView']);
 //create post
 Route::post('/create-post', [PostController::class, 'createPost']);
 
+
+Route::get('/allposts', [PostController::class, 'postView'])->middleware('isLoggedIn');
+
+
+//admins page 
+
+Route::get('/admin/admin-view', [AdminController::class, 'adminView'])->middleware('isLoggedIn');
+
+
 //dashboard page
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware('isLoggedIn');
 
@@ -54,9 +63,7 @@ Route::get('/admin/register', [MyController::class, 'showRegister']);
 Route::get('/admin/login', [MyController::class, 'showLogin']);
 
 
-Route::get('/admin/admin-view', [MyController::class, 'adminView'])->middleware('isLoggedIn');
 
-Route::get('/allposts', [MyController::class, 'postView'])->middleware('isLoggedIn');
 
 
 

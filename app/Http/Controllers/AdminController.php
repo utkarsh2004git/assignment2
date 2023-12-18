@@ -9,6 +9,18 @@ use Session;
 class AdminController extends Controller
 {
 
+         public function adminView(){
+
+        //  $admins= Admin::all();
+
+         $admins= Admin::paginate(10);
+         // echo "<pre>";
+         // print_r($admins->toArray());
+         
+         $data=compact('admins');
+        return view('admin/admin-view')->with($data);
+     }
+
 
     public function registerAdmin(Request $req){
        
@@ -64,9 +76,6 @@ class AdminController extends Controller
         }
     }
 
-    public function postView(){
-        
-    }
 
 
 

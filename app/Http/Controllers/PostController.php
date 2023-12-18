@@ -8,8 +8,23 @@ use Illuminate\Support\Facades\Hash;
 
 class PostController extends Controller
 {
+
+    public function postView(){
+
+        // $posts= Post::all();
+        $posts= Post::paginate(10);
+        // echo "<pre>";
+        // print_r($admins->toArray());
+        
+        $data=compact('posts');
+        
+       return view('posts/adminpost')->with($data);
+    }
+
     public function HomePage(){
-        $posts= Post::all();
+        // $posts= Post::all();
+
+        $posts= Post::paginate(9);
         $data=compact('posts');
        return view('/home')->with($data);
     }

@@ -16,24 +16,8 @@ class MyController extends Controller
      }
 
 
-     public function adminView(){
 
-         $admins= Admin::all();
-         // echo "<pre>";
-         // print_r($admins->toArray());
-         
-         $data=compact('admins');
-        return view('admin/admin-view')->with($data);
-     }
-     public function postView(){
 
-         $posts= Post::all();
-         // echo "<pre>";
-         // print_r($admins->toArray());
-         
-         $data=compact('posts');
-        return view('posts/adminpost')->with($data);
-     }
 
 
 }

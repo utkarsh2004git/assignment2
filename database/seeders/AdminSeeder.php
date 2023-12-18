@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
-
+use Faker\Factory as Faker;
 class AdminSeeder extends Seeder
 {
     /**
@@ -14,6 +14,8 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
+        $faker =Faker::create();
+
         $admin1=new Admin;
         $admin1->name="Utkarsh";
         $admin1->email="Utkarsh@123";
@@ -31,5 +33,17 @@ class AdminSeeder extends Seeder
         $admin2->status=1;
         $admin2->password=Hash::make("987456321");
         $admin2->save();
+
+        for ($i=4; $i < 20; $i++) { 
+            $admin=new Admin;
+            $admin->name=$faker->name;
+            $admin->email=$faker->email;
+            $admin->gender=$faker->randomElement(['M',"F","O"]);
+            $admin->dob=$faker->date;
+            $admin->status=$faker->randomElement([1,0]);
+            $admin->password=Hash::make($faker->password);
+            $admin->save();
+        }
+
     }
 }

@@ -2,8 +2,6 @@
 @extends('layouts.main')
 @section("hero-section")
 
-
-
     <div align="center">
         <div id="alert">
             @if(session()->has('success'))
@@ -24,6 +22,7 @@
         <table class="table">
             <thead align="center">
                 <tr>
+                    <th>Admin_id</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>DOB</th>
@@ -36,6 +35,7 @@
             <tbody align="center">
                 @foreach ($admins as $admin)
                 <tr>
+                    <td>{{$admin->admin_id}}</td>
                     <td>{{$admin->name}}</td>
                     <td>{{$admin->email}}</td>
                     <td>{{date("d-M-Y",strtotime($admin->dob))}}</td>
@@ -54,11 +54,10 @@
                     <td>{{$admin->created_at->diffForHumans()}}</td>
                     <td>{{$admin->updated_at->diffForHumans()}}</td>
                 </tr>
-
                 @endforeach
             </tbody>
         </table>
     </div>
-
+    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8  " style="">{{ $admins->links() }}</div>
 
 @endsection
