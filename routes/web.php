@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //index page
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [PostController::class, 'HomePage']);
 
 //dashboard page
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware('isLoggedIn');
