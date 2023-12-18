@@ -12,9 +12,8 @@
     </section>
   </div>
 
-  <div class="text-center p-3 font-bold hover:underline " style="background-color: rgba(0, 0, 0, 0.05);">
-    &copy; 2020 Copyright:<a class="text-body cursor-pointer" href="#">UtkarshShahare.com</a>
-
+  <div class="" style="background-color: rgba(0, 0, 0, 0.05);">
+    <a class="text-center p-3 font-bold hover:underline hover:text-orange-600 "  href="#">&copy; 2020 Copyright: UtkarshShahare.com</a>
   </div>
 
 </footer>

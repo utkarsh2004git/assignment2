@@ -46,7 +46,7 @@ Route::get('/admin/register', [MyController::class, 'showRegister']);
 Route::get('/admin/login', [MyController::class, 'showLogin']);
 
 
-Route::get('/admin/admin-view', [MyController::class, 'adminView']);
+Route::get('/admin/admin-view', [MyController::class, 'adminView'])->middleware('isLoggedIn');
 
 //register form
 Route::post('/admin/register', [AdminController::class, 'registerAdmin']);

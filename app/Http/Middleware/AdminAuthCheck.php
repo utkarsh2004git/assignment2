@@ -5,7 +5,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Session;
 use Symfony\Component\HttpFoundation\Response;
-
+use Auth;
 class AdminAuthCheck
 {
     /**
