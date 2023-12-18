@@ -61,4 +61,16 @@ class PostController extends Controller
             return redirect('home')->with("fail","Something went wrong");
         }
     }
+
+
+    public function deletePost($id){
+        $post=Post::find($id);
+        $post->delete();
+        return redirect()->back()->with("success","Post deleted Successfully");
+
+    }
+
+
+
+
 }

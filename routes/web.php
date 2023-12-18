@@ -28,6 +28,10 @@ Route::get('/create-post', [PostController::class, 'createPostView']);
 //create post
 Route::post('/create-post', [PostController::class, 'createPost']);
 
+//delete post
+Route::get('/delete-post/{id}', [PostController::class, 'deletePost'])->name('delete.post');
+
+
 
 Route::get('/allposts', [PostController::class, 'postView'])->middleware('isLoggedIn');
 

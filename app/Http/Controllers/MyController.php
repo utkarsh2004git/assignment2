@@ -16,8 +16,4 @@ class MyController extends Controller
      }
 
 
-
-
-
-
 }
