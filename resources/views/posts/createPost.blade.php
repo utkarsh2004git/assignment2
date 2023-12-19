@@ -17,11 +17,11 @@
 
               <option  value="select" name="select" selected disabled >select</option>
 
-              <option  value="Politics" name="Politics"  {{$post->category=="Politics"?"selected":""}}>Politics</option>
-              <option  value="Agriculture" name="Agriculture" {{$post->category=="Agriculture"?"selected":""}} >Agriculture</option>
-              <option  value="Sports"       name="Sports"  {{$post->category=="Sports"?"selected":""}}{{$post->category=="Agriculture"?"selected":""}}>Sports</option>
-              <option  value="Technology" name="Technology" {{$post->category=="Technology"?"selected":""}} >Technology</option>
-              <option  value="Spiritual" name="Spiritual" {{$post->category=="Spiritual"?"selected":""}} >Spiritual</option>
+              <option value="Politics" name="Politics" {{ $post->category == NULL ? (old('category') == 'Politics' ? 'selected' : '') : ($post->category == 'Politics' ? 'selected' : '') }}>Politics</option>
+              <option value="Agriculture" name="Agriculture" {{ $post->category == NULL ? (old('category') == 'Agriculture' ? 'selected' : '') : ($post->category == 'Agriculture' ? 'selected' : '') }}>Agriculture</option>
+              <option value="Sports" name="Sports" {{ $post->category == NULL ? (old('category') == 'Sports' ? 'selected' : '') : ($post->category == 'Sports' ? 'selected' : '') }}>Sports</option>
+              <option value="Technology" name="Technology" {{ $post->category == NULL ? (old('category') == 'Technology' ? 'selected' : '') : ($post->category == 'Technology' ? 'selected' : '') }}>Technology</option>
+              <option value="Spiritual" name="Spiritual" {{ $post->category == NULL ? (old('category') == 'Spiritual' ? 'selected' : '') : ($post->category == 'Spiritual' ? 'selected' : '') }}>Spiritual</option>
 
             </select>
             <span class="text-danger">
@@ -33,9 +33,13 @@
             <div class="form-group my-2">
               <label for="name" class="font-semibold">Title</label>
               <input type="text"
-                class="form-control rounded-md"  name="title" id=""  placeholder="" value="{{$post->title}}">
+                class="form-control rounded-md"  name="title" id=""  placeholder="" value="{{$post->title==NULL?old('title'):$post->title}}">
             </div>
-        
+            <span class="text-danger">
+              @error('title')
+              {{$message}}
+              @enderror
+            </span>
 
 
         <div>
@@ -44,7 +48,7 @@
             class="block mt-1 w-full rounded"
             name="content"
             rows="6"
-            autofocus >{{$post->content}}</textarea>
+            autofocus >{{$post->content==NULL?old('content'):$post->content}}</textarea>
             <span class="text-danger">
                 @error('content')
                 {{$message}}
@@ -53,9 +57,14 @@
         </div>
         
         <div class="form-group my-2">
-          <label for="name" class="font-semibold">Name</label>
+          <label for="creator" class="font-semibold">Name</label>
           <input type="text"
-            class="form-control rounded-md"  name="name" id=""  placeholder="" value="{{$post->creator}}">
+            class="form-control rounded-md"  name="creator" id="creator"  placeholder="" value="{{$post->creator==NULL?old('creator'):$post->creator}}">
+            <span class="text-danger">
+              @error('category')
+              {{$message}}
+              @enderror
+            </span> 
         </div>
 
             <div class="text-center">

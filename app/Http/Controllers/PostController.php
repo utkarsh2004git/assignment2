@@ -44,7 +44,7 @@ class PostController extends Controller
        
         $req->validate(
                 [
-                    'name'=>'required',
+                    'creator'=>'required',
                     'title'=>'required|min:10|max:25',
                     'content'=>'required',
                     'category'=>'required',
@@ -53,7 +53,8 @@ class PostController extends Controller
         );
 
         $post = new Post;
-        $post->creator= $req['name'];
+        $post->creator= $req['creator'];
+        $post->user_id= session()->get('loginId');
         $post->content= $req['content'];
         $post->title= $req['title'];
         $post->category= $req['category'];
@@ -91,7 +92,7 @@ class PostController extends Controller
 
     public function updatePost($id,Request $req){
         $post=Post::find($id);
-        $post->creator= $req['name'];
+        $post->creator= $req['creator'];
         $post->content= $req['content'];
         $post->title= $req['title'];
         $post->category= $req['category'];

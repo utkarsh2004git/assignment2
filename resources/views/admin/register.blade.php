@@ -22,12 +22,21 @@
           @enderror
       </span>
 
-        <x-Forminput type="text" name="password" title="Password" errortype="password" value='' />
-        <span class="text-danger">
-          @error('password')
-          {{$message}}
-          @enderror
-      </span>
+
+        {{-- <x-Forminput type="password" id="password" name="password" title="Password" errortype="password" value='' />
+         --}}
+         <div class="form-group my-2">
+          <label for="password" class="font-semibold">Password</label>
+          <input type="password"
+            class="form-control rounded-md"  name="password" id="password"  placeholder="" value="">
+            <input type="checkbox" id="showPassword"> <label for="showPassword" class="mb-0">Show Password</label>
+            <span class="text-danger">
+              @error('password')
+              {{$message}}
+              @enderror
+          </span>
+        </div>
+
 
         <x-Forminput type="date" name="dob" title="Date of Birth" errortype="date" value="{{old('dob')}}"/>
         <span class="text-danger">
@@ -39,9 +48,9 @@
           <label for="gender " class="font-semibold">Gender</label>
           <select class="form-control" name="gender" id="gender"  required  >
             <option value="select" name="select" selected disabled >select</option>
-            <option value="M" name="M" >Male</option>
-            <option value="F" name="F" >Female</option>
-            <option value="O" name="O" >Other</option>
+            <option value="M" name="M" {{old('gender')=="M"?"selected":""}}>Male</option>
+            <option value="F" name="F" {{old('gender')=="F"?"selected":""}}>Female</option>
+            <option value="O" name="O" {{old('gender')=="O"?"selected":""}}>Other</option>
           </select>
           <span class="text-danger">
             @error('gender')
@@ -61,5 +70,15 @@
     </div>
 
 </div>
+@endsection
+
+
+@section('javascript-section')
+<script>
+  document.getElementById('showPassword').addEventListener('change', function () {
+      var passwordField = document.getElementById('password');
+      passwordField.type = this.checked ? 'text' : 'password';
+  });
+</script>
 
 @endsection

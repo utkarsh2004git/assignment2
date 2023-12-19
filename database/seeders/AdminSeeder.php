@@ -34,7 +34,7 @@ class AdminSeeder extends Seeder
         $admin2->password=Hash::make("987456321");
         $admin2->save();
 
-        for ($i=4; $i < 20; $i++) { 
+        for ($i=4; $i < 15; $i++) { 
             $admin=new Admin;
             $admin->name=$faker->name;
             $admin->email=$faker->email;
