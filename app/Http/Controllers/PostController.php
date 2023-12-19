@@ -78,9 +78,7 @@ class PostController extends Controller
         $post=Post::find($id);
         
         if(is_null($post)){
-
             return redirect('/');
-
         }
         else{
             $heading="Update Post";
@@ -100,5 +98,20 @@ class PostController extends Controller
         $post->save();
         return redirect("/allposts")->with("success","Post Updated Successfully");
     }
+
+    public function detailPost($id){
+        $post=Post::find($id);
+        
+        if(is_null($post)){
+            return redirect('/');
+        }
+        else{
+            $url='/update-post' .'/'. $id;
+            $data=compact('post','url');
+            return view("/posts/detailpost")->with($data);
+        }
+    }
+
+
 
 }

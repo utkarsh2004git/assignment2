@@ -26,7 +26,7 @@
                     <span class="text-black ml-2 font-semibold  ">
                         {{$post->updated_at->diffForHumans()}}
                     </span>
-                    <a href="#" style="text-decoration: none" class="hover:scale-105 transition-all transition-600"> <span class=" text-white p-2 rounded-xl" style="background-color: #283447 ">
+                    <a href="{{url('/detail-post')}}/{{$post->post_id}}" style="text-decoration: none" class="hover:scale-105 transition-all transition-600"> <span class=" text-white p-2 rounded-xl" style="background-color: #283447 ">
                         Read More
                     </span></a>
                 </div>
