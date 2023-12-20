@@ -13,7 +13,7 @@ class AdminController extends Controller
 
         //  $admins= Admin::all();
 
-         $admins= Admin::paginate(10);
+         $admins= Admin::orderBy("created_at","desc")->paginate(10);
          // echo "<pre>";
          // print_r($admins->toArray());
          

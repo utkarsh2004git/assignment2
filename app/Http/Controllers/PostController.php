@@ -12,7 +12,7 @@ class PostController extends Controller
     public function postView(){
 
         // $posts= Post::all();
-        $posts= Post::paginate(10);
+        $posts= Post::orderBy("created_at","desc")->paginate(10);
         // echo "<pre>";
         // print_r($admins->toArray());
         
@@ -24,7 +24,7 @@ class PostController extends Controller
     public function HomePage(){
         // $posts= Post::all();
 
-        $posts= Post::paginate(9);
+        $posts= Post::orderBy("created_at","desc")->paginate(9);
         $data=compact('posts');
        return view('/home')->with($data);
     }
@@ -45,7 +45,7 @@ class PostController extends Controller
         $req->validate(
                 [
                     'creator'=>'required',
-                    'title'=>'required|min:10|max:25',
+                    'title'=>'required|min:10|max:35',
                     'content'=>'required',
                     'category'=>'required',
 

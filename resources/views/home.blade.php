@@ -15,7 +15,7 @@
                 </div>
                 
                 <div class="info border rounded-md p-3 my-3 text-white" style="background-color: #283447">
-                    <h4 class="text-3xl"> <span class="font-semibold ">Title : </span> {{$post->title}}</h4>
+                    <h4 class="text-3xl"> <span class="font-semibold ">Title : </span> {{substr($post->title,0,19)}}...</h4>
                     <p class="mt-3 ">{{substr($post->content,0,170)}}. . . .</p>
 
                     <div class="mt-3 bg-white w-2/5 py-2 rounded-lg">
