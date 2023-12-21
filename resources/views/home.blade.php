@@ -9,7 +9,7 @@
 
     <div class="mt-2 grid grid-cols-3 gap-5 ">
         @foreach($posts as $post)
-            <div class="border-3  border-gray-400 cursor-pointer p-3 rounded-md flex flex-col hover:scale-105 transition-all transition-600" style="background-color: white;border:3px solid #283447">
+            <div class="border-3  border-gray-400 cursor-pointer p-3 rounded-md flex flex-col hover:scale-105 transition-all transition-600 justify-between " style="background-color: white;border:3px solid #283447">
                 <div>
                     <h3 class=" text-5xl font-sans" style="color: #283447" >{{$post->category}}</h3>
                 </div>
@@ -22,13 +22,13 @@
                         <h3 class="text-black font-semibold " align='center'>{{$post->creator}}</h3>
                     </div>
                 </div>
-                <div class="flex justify-between">
+                <div class="flex justify-between mb-2">
                     <span class="text-black ml-2 font-semibold  ">
                         {{$post->updated_at->diffForHumans()}}
                     </span>
-                    <a href="{{url('/detail-post')}}/{{$post->post_id}}" style="text-decoration: none" class="hover:scale-105 transition-all transition-600"> <span class=" text-white p-2 rounded-xl" style="background-color: #283447 ">
-                        Read More
-                    </span></a>
+                    <a href="{{url('/detail-post')}}/{{$post->post_id}}" style="text-decoration: none" class="hover:scale-110 transition-all transition-1000 bg-orange-500 p-2 rounded-xl hover:bg-mycolor">
+                     <span class=" text-white p-2 rounded-xl" >Read More </span>
+                    </a>
                 </div>
 
             </div>

@@ -1,7 +1,7 @@
 <header>
     <nav class="p-6 bg-gray-100 flex items-center  justify-between">
-            <div class="flex bg-orange-600 p-2 rounded-lg cursor-pointer hover:scale-95 transition-all ">
-                <a href="{{url('/')}}" style="text-decoration: none"><p class="text-2xl text-semibold text-gray-200">Utkarsh</p></a>
+            <div class="flex bg-orange-600 p-2 rounded-lg cursor-pointer hover:scale-110 transition-all hover:bg-mycolor" > 
+                <a href="{{url('/')}}" style="text-decoration: none" ><p class="text-2xl text-semibold text-gray-200">Utkarsh</p></a>
             </div>
             <div class="font-bold text-2xl ">
                 <x-Navitem url="/" title="Home" />

@@ -61,7 +61,7 @@
           <input type="text"
             class="form-control rounded-md"  name="creator" id="creator"  placeholder="" value="{{$post->creator==NULL?old('creator'):$post->creator}}">
             <span class="text-danger">
-              @error('category')
+              @error('creator')
               {{$message}}
               @enderror
             </span> 
