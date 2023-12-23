@@ -20,7 +20,7 @@
 <div >
     <div class=" flex flex-col p-6 w-3/5 mx-auto my-7 rounded-3xl" style="background-color: #283447">
        <div>
-            <div class="bg-white w-1/3 p-3 rounded-3xl">
+            <div class="bg-white w-max p-3 rounded-3xl">
                 <h2 class="display-5 font-sans font-semibold" style="color: #283447">{{$post->category}}</h2>   
             </div>
             <div class="p-3 bg-white my-3 rounded-xl w-4/5">
@@ -30,19 +30,19 @@
                 <div>
                     <p>{{$post->content}}</p>
                 </div>
-                <div class="p-2 text-white text-xl font-semibold rounded-lg mt-3 w-1/3 hover:scale-95 transition-all transition-300 cursor-pointer " style="background-color: #283447" >
+                <div class="p-2 text-white text-xl font-semibold rounded-lg mt-3 w-max hover:scale-95 transition-all transition-300 cursor-pointer " style="background-color: #283447" >
                     <h5 align='center'>{{$post->creator}}</h5>
                     
                 </div>
             </div>
        </div>
        <div>
-            <div class="bg-orange-400 mt-4 flex text-white justify-between p-4 text-xl rounded-xl">
+            <div class="bg-orange-400 mt-4 lg:flex text-white justify-between p-4 text-xl rounded-xl lg:flex-row flex-col">
                     <div>
-                        <div>
+                        <div class="">
                             <p>Created : {{$post->created_at->diffForHumans()}}</p>
                         </div>
-                        <div>
+                        <div class="">
                             <p>Updated : {{$post->updated_at->diffForHumans()}}</p>
                         </div>
                     </div>
