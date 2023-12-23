@@ -44,7 +44,7 @@ class PostController extends Controller
        
         $req->validate(
                 [
-                    'creator'=>'required|alpha',
+                    'creator'=>'required|regex:/^[a-zA-Z\s]+$/',
                     'title'=>'required|min:10|max:35',
                     'content'=>'required',
                     'category'=>'required',
