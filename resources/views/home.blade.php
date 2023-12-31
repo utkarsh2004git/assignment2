@@ -18,7 +18,7 @@
                     <h4 class="text-3xl"> <span class="font-semibold ">Title : </span> {{substr($post->title,0,19)}}...</h4>
                     <p class="mt-3 ">{{substr($post->content,0,170)}}. . . .</p>
 
-                    <div class="mt-3 px-3 py-2 bg-white w-max  rounded-lg  ">
+                    <div class="mt-3 px-3 py-2 bg-white w-max  rounded-lg nnp ">
                         <h3 class="text-black font-semibold " align='center'>{{$post->creator}}</h3>
                     </div>
                 </div>

@@ -22,24 +22,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'HomePage']);
 
 //create post
-Route::get('/create-post', [PostController::class, 'createPostView']);
+Route::get('/create-post', [PostController::class, 'createPostView'])->middleware('isLoggedIn');
 
 
 //create post
 Route::post('/create-post', [PostController::class, 'createPost']);
 
 //delete post
-Route::get('/delete-post/{id}', [PostController::class, 'deletePost'])->name('delete.post');
+Route::get('/delete-post/{id}', [PostController::class, 'deletePost'])->name('delete.post')->middleware('isLoggedIn');
 
 
 //edit post
-Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->name('edit.post');
+Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->name('edit.post')->middleware('isLoggedIn');
 
 //detail post
-Route::get('/detail-post/{id}', [PostController::class, 'detailPost'])->name('detail.post');
+Route::get('/detail-post/{id}', [PostController::class, 'detailPost'])->name('detail.post')->middleware('isLoggedIn');
 
 //update post
-Route::post('/update-post/{id}', [PostController::class, 'updatePost'])->name('update.post');
+Route::post('/update-post/{id}', [PostController::class, 'updatePost'])->name('update.post')->middleware('isLoggedIn');
 
 
 
