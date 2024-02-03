@@ -36,7 +36,7 @@ Route::get('/delete-post/{id}', [PostController::class, 'deletePost'])->name('de
 Route::get('/edit-post/{id}', [PostController::class, 'editPost'])->name('edit.post')->middleware('isLoggedIn');
 
 //detail post
-Route::get('/detail-post/{id}', [PostController::class, 'detailPost'])->name('detail.post')->middleware('isLoggedIn');
+Route::get('/detail-post/{id}', [PostController::class, 'detailPost'])->name('detail.post');
 
 //update post
 Route::post('/update-post/{id}', [PostController::class, 'updatePost'])->name('update.post')->middleware('isLoggedIn');
